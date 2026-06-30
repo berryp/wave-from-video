@@ -117,6 +117,24 @@ def extract_waveform(
     )
 
 
+def band_contrast(gray: np.ndarray, waveform: Waveform) -> dict[str, float]:
+    """Quantify how well the centerline sits on the bright band.
+
+    Returns mean brightness under the detected centerline, the background median,
+    and their difference. A large positive ``delta`` means the trace tracks the
+    band rather than the grey background.
+    """
+    gray = gray.astype(np.float64)
+    present = ~np.isnan(waveform.centerline)
+    cols = np.where(present)[0]
+    if cols.size == 0:
+        return {"under_curve": float("nan"), "background": float(np.median(gray)), "delta": 0.0}
+    rows = np.clip(np.round(waveform.centerline[cols]).astype(int), 0, gray.shape[0] - 1)
+    under_curve = float(gray[rows, cols].mean())
+    background = float(np.median(gray))
+    return {"under_curve": under_curve, "background": background, "delta": under_curve - background}
+
+
 def _weighted_median(values: np.ndarray, weights: np.ndarray) -> float:
     """Weighted median of ``values`` with non-negative ``weights``."""
     order = np.argsort(values)

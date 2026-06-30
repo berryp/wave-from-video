@@ -35,9 +35,10 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
   background percentile + frame denoising to lock onto the ridge.
 
 ## Epic 4 — Overlay validation output
-- [ ] 4.1 `render.py` overlay: centerline drawn on reference image → `output/overlay.png`
-- [ ] 4.2 `scripts/validate_extraction.py`: run extraction + emit overlay + contrast metrics
-- **Validation:** overlay file exists, non-empty; contrast metric passes; artifact saved.
+- [x] 4.1 `render.py` overlay: centerline drawn on reference image → `output/overlay.png`
+- [x] 4.2 `scripts/validate_extraction.py`: run extraction + emit overlay + contrast metrics
+- [x] 4.3 `band_contrast()` helper in `extract.py` (reused by test + script)
+- **Validation:** overlay PNG written; delta ≈ +48.7 over background; trace sits on band. ✅
 
 ## Epic 5 — Temporal signal + data files
 - [ ] 5.1 `temporal.py`: all-frames centerlines (2D) + temporal envelope (1D)

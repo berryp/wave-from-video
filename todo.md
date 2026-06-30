@@ -27,10 +27,12 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
   bars/chevron were the phone's screen UI. `reference_frame.png` is real frame #30.
 
 ## Epic 3 — Spatial waveform extraction (core)
-- [ ] 3.1 `extract.py`: bg-subtract + per-column centroid → centerline/amplitude/confidence
-- [ ] 3.2 Synthetic sine-band fixture + ground-truth test (corr ≥ 0.95, low RMSE)
-- [ ] 3.3 Reference-frame contrast test (brightness under curve ≫ background; non-trivial variance)
-- **Validation:** both tests green.
+- [x] 3.1 `extract.py`: denoise + bg-subtract + peak-emphasised centroid → centerline/amplitude/confidence
+- [x] 3.2 Synthetic sine-band fixture + ground-truth test (corr ≥ 0.95, RMSE ≤ 4px)
+- [x] 3.3 Reference-frame contrast test (under-curve ≈ +48 over background; non-trivial variance)
+- **Validation:** all extraction tests green. ✅
+- **Note:** faint real band required squared-residual centroid weighting + higher
+  background percentile + frame denoising to lock onto the ridge.
 
 ## Epic 4 — Overlay validation output
 - [ ] 4.1 `render.py` overlay: centerline drawn on reference image → `output/overlay.png`

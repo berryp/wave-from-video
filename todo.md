@@ -51,8 +51,9 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
 - **Validation:** `jupyter nbconvert --execute` exits 0 with outputs.
 
 ## Epic 7 — CLI end-to-end
-- [ ] 7.1 `cli.py` + `wave-from-video` entry point; `scripts/run_pipeline.sh`
-- **Validation:** run on real `.MOV` → overlay + npz + wav all exist, non-empty.
+- [x] 7.1 `cli.py` + `wave-from-video` entry point; `scripts/run_pipeline.sh`
+- **Validation:** full run on real `.MOV` → 2642 frames in 45s; overlay + npz +
+  waveform plot + 2 wavs all written, non-empty; CLI test on 12 frames. ✅
 
 ## Epic 8 — Docs & session continuity
 - [ ] 8.1 README usage section

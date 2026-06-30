@@ -102,8 +102,10 @@ def save_waveform_npz(
         out_path,
         spatial_x=spatial_x,
         spatial_amplitude=spatial_amplitude,
-        centerlines=temporal.centerlines,
-        amplitudes=temporal.amplitudes,
+        # 2-D raw arrays stored as float32 to keep the file small; the 1-D
+        # signals that drive plots/audio stay float64.
+        centerlines=temporal.centerlines.astype(np.float32),
+        amplitudes=temporal.amplitudes.astype(np.float32),
         envelope=temporal.envelope,
         fps=temporal.fps,
         stride=temporal.stride,

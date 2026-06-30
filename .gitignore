@@ -9,3 +9,6 @@ __pycache__/
 # Generated artifacts (a small sample may be force-added)
 output/*
 !output/.gitkeep
+
+# nbconvert execution output
+notebooks/executed_*.ipynb

@@ -1,0 +1,13 @@
+[tools]
+# hk = "latest"
+# "npm:basedpyright" = "latest"
+python = "3.14"
+ruff = "latest"
+uv = "latest"
+
+[env._]
+file = ".env"
+
+[env._.python.venv]
+path = ".venv"
+create = false

@@ -57,8 +57,13 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
   waveform plot + 2 wavs all written, non-empty; CLI test on 12 frames. ✅
 
 ## Epic 8 — Docs & session continuity
-- [ ] 8.1 README usage section
-- [ ] 8.2 `scripts/README.md` (what each script does / when to reuse)
-- [ ] 8.3 Pointer in `CLAUDE.md` so new sessions discover `scripts/`, `spec.md`, `todo.md`
-- [ ] 8.4 Keep `spec.md` / `todo.md` in sync with any direction changes
-- **Validation:** docs present and accurate; new-session discoverability confirmed.
+- [x] 8.1 README usage section (quickstart, outputs table, how-it-works, dev)
+- [x] 8.2 `scripts/README.md` (what each script does / when to reuse)
+- [x] 8.3 Pointer in `CLAUDE.md` so new sessions discover `scripts/`, `spec.md`, `todo.md`
+- [x] 8.4 Keep `spec.md` / `todo.md` in sync (updated throughout)
+- **Validation:** docs present and accurate; new-session discoverability confirmed. ✅
+
+---
+
+**All epics complete.** 22 tests pass, ruff clean, full pipeline verified on the
+real video (overlay + npz + wavs + plot), notebook renders headlessly.

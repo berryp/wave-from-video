@@ -4,6 +4,21 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
+## Project orientation (read first)
+
+`wave-from-video` extracts a waveform from a video of a water reflection.
+
+- **`spec.md`** — full design (problem, algorithm, validation strategy). Keep it
+  current when direction changes.
+- **`todo.md`** — epic/task breakdown with per-epic validations and progress.
+- **`scripts/`** (see `scripts/README.md`) — reusable setup/extraction/validation/
+  pipeline scripts. Reuse these instead of re-creating ad-hoc commands; extend
+  them as needed.
+- Dev env is **mise + uv** (Python 3.14). Run `bash scripts/setup.sh`, then
+  `uv run pytest -q` and `uv run ruff check`.
+- Work on the **`main`** branch. Commit + push after each feature once tests and
+  validations pass.
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**

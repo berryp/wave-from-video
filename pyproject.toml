@@ -1,7 +1,41 @@
 [project]
 name = "wave-from-video"
 version = "0.1.0"
-description = "Add your description here"
+description = "Extract a waveform from a video of a water reflection"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pillow",
+    "imageio",
+    "imageio-ffmpeg",
+    "soundfile",
+]
+
+[project.scripts]
+wave-from-video = "wave_from_video.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "jupyter",
+    "nbconvert",
+    "nbclient",
+    "ipython",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wave_from_video"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

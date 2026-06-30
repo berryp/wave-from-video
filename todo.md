@@ -8,16 +8,16 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
 
 ## Epic 0 — Bootstrap & write-access check
 - [x] 0.1 Update `README.md` with summary → commit → **push** (verify write access)
-- [~] 0.2 Add `spec.md` + `todo.md` → commit → push
-- **Validation:** push to `origin/main` succeeds; files on remote.
+- [x] 0.2 Add `spec.md` + `todo.md` → commit → push
+- **Validation:** push to `origin/main` succeeds; files on remote. ✅
 
 ## Epic 1 — Dev env & scaffolding
-- [ ] 1.1 Fill `pyproject.toml` (runtime + dev deps, package config, CLI entry point)
-- [ ] 1.2 Create `src/wave_from_video/` package skeleton with module stubs
-- [ ] 1.3 `scripts/setup.sh` (bootstrap mise/uv + `uv sync`); `data/`, `output/`, `.gitignore`
-- [ ] 1.4 Save `data/reference_frame.png` (from the video)
+- [x] 1.1 Fill `pyproject.toml` (runtime + dev deps, package config, CLI entry point)
+- [x] 1.2 Create `src/wave_from_video/` package skeleton + smoke test
+- [x] 1.3 `scripts/setup.sh` (bootstrap mise/uv + `uv sync`); `data/`, `output/`, `.gitignore`
+- [→] 1.4 Save `data/reference_frame.png` (from the video) — moved to Epic 2 (needs the reader)
 - **Validation:** `uv sync`; `uv run python -c "import wave_from_video"`; `uv run pytest -q`
-  collects; `uv run ruff check` clean.
+  collects; `uv run ruff check` clean. ✅
 
 ## Epic 2 — Video ingestion
 - [ ] 2.1 `io_video.py`: frame iterator, metadata (fps/size/count), grayscale, ROI/letterbox crop

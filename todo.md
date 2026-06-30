@@ -15,14 +15,16 @@ Each epic ends with: **tests + validation pass → commit → push to `main`**.
 - [x] 1.1 Fill `pyproject.toml` (runtime + dev deps, package config, CLI entry point)
 - [x] 1.2 Create `src/wave_from_video/` package skeleton + smoke test
 - [x] 1.3 `scripts/setup.sh` (bootstrap mise/uv + `uv sync`); `data/`, `output/`, `.gitignore`
-- [→] 1.4 Save `data/reference_frame.png` (from the video) — moved to Epic 2 (needs the reader)
+- [x] 1.4 Save `data/reference_frame.png` (from the video) — done in Epic 2 (needs the reader)
 - **Validation:** `uv sync`; `uv run python -c "import wave_from_video"`; `uv run pytest -q`
   collects; `uv run ruff check` clean. ✅
 
 ## Epic 2 — Video ingestion
-- [ ] 2.1 `io_video.py`: frame iterator, metadata (fps/size/count), grayscale, ROI/letterbox crop
-- [ ] 2.2 `scripts/extract_frames.py`: dump/sample frames, produce `reference_frame.png`
-- **Validation:** test — frame count > 0, expected shape/dtype; ROI crop removes letterbox.
+- [x] 2.1 `io_video.py`: frame iterator, metadata (fps/size/count), grayscale, ROI/letterbox crop
+- [x] 2.2 `scripts/extract_frames.py`: dump/sample frames, produce `reference_frame.png`
+- **Validation:** test — frame count > 0, expected shape/dtype; ROI crop removes letterbox. ✅
+- **Note:** real frames are clean 640×360 (no letterbox); the attached image's black
+  bars/chevron were the phone's screen UI. `reference_frame.png` is real frame #30.
 
 ## Epic 3 — Spatial waveform extraction (core)
 - [ ] 3.1 `extract.py`: bg-subtract + per-column centroid → centerline/amplitude/confidence
